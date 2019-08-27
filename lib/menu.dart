@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 //Pages
-import 'simple/main_simple.dart';
+import 'simple_flare/simple_flare.dart';
+import 'simple_nima/simple_nima.dart';
 
 //Constants
 import 'constants.dart' as own;
@@ -19,7 +20,8 @@ class Menu extends StatelessWidget {
       body: Container(
         child: ListView(
           children: <Widget>[
-            menuItem(own.MENU_SIMPLE, context, Simple())
+            menuItem(own.MENU_SIMPLE_FLARE, context, SimpleFlare()),
+            menuItem(own.MENU_SIMPLE_NIMA, context, SimpleNima())
           ],
         ),
       ),

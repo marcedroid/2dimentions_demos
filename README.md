@@ -8,10 +8,10 @@ Lo primero es agregar **flare_flutter** y la carpeta de assets al archivo **pubs
 
 ```dart
 dependencies:
-    flare_flutter:
+	flare_flutter:
 
 assets:
-    - assets/flare/
+	- assets/flare/
 ```
 
 **Nombre de la(s) animación(es)** importante ya que es un parámetro requerido, si no se lo coloca o es incorrecto solo aparece la imagen del primer frame.
@@ -40,16 +40,34 @@ Nima es utilizado para animaciones con imágenes de mapa de bits.
 Lo primero es agregar **nima** y la carpeta de assets al archivo **pubspec.yaml**
 ```dart
 dependencies:
-    nima:
+	nima:
 
 assets:
-    - assets/nima/
+	- assets/nima/
+```
+
+### Animación simple - Nima
+
+Para una animación simple solo se necesita nima actor.
+
+`import 'package:nima/nima_actor.dart';`
+
+Utilizar el widget NimaActor para mostrar la animación.
+
+```dart
+NimaActor(
+	"assets/nima/Robot.nma",
+	animation: "nombre_animacion",
+	alignment: Alignment.center, //Opcional
+	fit: BoxFit.cover, //Opcional
+)
 ```
 
 ------------
 
 ## Créditos Artistas
 - [Guido Rosso](https://www.2dimensions.com/a/pollux/files/recent/all "Guido Rosso")
+- [Luigi Rosso](https://www.2dimensions.com/a/castor/files/recent/all "Luigi Rosso")
 
 
 ------------
@@ -66,4 +84,3 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-
