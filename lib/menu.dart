@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 //Pages
 import 'simple_flare/simple_flare.dart';
 import 'simple_nima/simple_nima.dart';
+import 'cambio_animaciones/cambio_animaciones.dart';
 
 //Constants
 import 'constants.dart' as own;
@@ -21,7 +22,8 @@ class Menu extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             menuItem(own.MENU_SIMPLE_FLARE, context, SimpleFlare()),
-            menuItem(own.MENU_SIMPLE_NIMA, context, SimpleNima())
+            menuItem(own.MENU_SIMPLE_NIMA, context, SimpleNima()),
+            menuItem(own.MENU_CAMBIO_ANIMACIONES, context, CambioAnimaciones())
           ],
         ),
       ),

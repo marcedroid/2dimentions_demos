@@ -46,6 +46,7 @@ flutter:
   assets:
     - assets/flare/
     - assets/nima/Robot/
+    - assets/nima/Hop/
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

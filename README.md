@@ -18,7 +18,7 @@ assets:
 
 ![Nombre de la(s) animación(es)](https://user-images.githubusercontent.com/2531939/63736072-83bdd480-c847-11e9-8f02-4c35ce546b8c.png "Nombre de la(s) animación(es)")
 
-### Animación simple - Flare
+### Animación simple - [Flare](https://www.2dimensions.com/a/pollux/files/flare/sushi "Flare")
 Para una animación simple solo se necesita importar flare actor.
 
 `import 'package:flare_flutter/flare_actor.dart';`
@@ -46,7 +46,7 @@ assets:
 	- assets/nima/
 ```
 
-### Animación simple - Nima
+### Animación simple - [Nima](https://www.2dimensions.com/a/castor/files/nima/robot "Nima")
 
 Para una animación simple solo se necesita nima actor.
 
@@ -63,11 +63,49 @@ NimaActor(
 )
 ```
 
+### Cambio entre animaciones - [Nima](https://www.2dimensions.com/a/JuanCarlos/files/nima/hop "Nima")
+
+En Nima desactivar el loop en las animaciones que solo deben correr una vez, como la de **jump** y **attack**.
+
+```dart
+//Importar nima
+import 'package:nima/nima_actor.dart';
+...
+//configurar la animación inicial (La clase debe extender de StatefullWidget)
+String _animationName = "idle";
+...
+//Animación principal
+NimaActor(
+	"assets/nima/Hop/Hop.nma",
+	animation: _animationName,
+	alignment: Alignment.center,
+	fit: BoxFit.contain,
+	mixSeconds: 0.5,
+	completed: (String animationName){
+		//La animación por default es infinita y no activa este evento
+		setState(() {
+			_animationName = "idle";
+		});
+	},
+)
+...
+//Cambio de animaciones
+RaisedButton(
+	...
+	onPressed: (){
+		setState(() {
+			_animationName = "attack";
+		});
+	},
+)
+```
+
 ------------
 
 ## Créditos Artistas
 - [Guido Rosso](https://www.2dimensions.com/a/pollux/files/recent/all "Guido Rosso")
 - [Luigi Rosso](https://www.2dimensions.com/a/castor/files/recent/all "Luigi Rosso")
+- [JcToon](https://www.2dimensions.com/a/JuanCarlos/files/recent/all "JcToon")
 
 
 ------------
@@ -84,3 +122,4 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
