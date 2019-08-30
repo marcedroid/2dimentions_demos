@@ -19,12 +19,12 @@ assets:
 ![Nombre de la(s) animación(es)](https://user-images.githubusercontent.com/2531939/63736072-83bdd480-c847-11e9-8f02-4c35ce546b8c.png "Nombre de la(s) animación(es)")
 
 ### Animación simple - [Flare](https://www.2dimensions.com/a/pollux/files/flare/sushi "Flare")
-Para una animación simple solo se necesita importar flare actor.
-
-`import 'package:flare_flutter/flare_actor.dart';`
 
 Utilizar el widget FlareActor para mostrar la animación.
 ```dart
+//Para una animación simple solo se necesita importar flare actor
+import 'package:flare_flutter/flare_actor.dart';
+...
 FlareActor(
 	"assets/flare/archivo.flr",
 	animation: "nombre_animacion",
@@ -33,7 +33,54 @@ FlareActor(
 )
 ```
 
+Código completo en *lib/simple_flare*
+
 ------------
+
+
+### Mix entre animaciones - [Flare](https://www.2dimensions.com/a/JuanCarlos/files/flare/penguin "Flare")
+
+Mix entre 2 animaciones del mismo archivo
+
+```dart
+//Importar las depoendencias
+import 'package:flare_dart/math/mat2d.dart';
+import 'package:flare_flutter/flare.dart';
+import 'package:flare_flutter/flare_actor.dart';
+import 'package:flare_flutter/flare_controller.dart';
+...
+//No olvidar incluir FlareController en la clase
+class _PinguinoSliderState extends State<PinguinoSlider> with FlareController
+...
+FlareActor(
+	"assets/flare/Penguin.flr",
+	animation: "walk", //Animación por defecto
+	...
+	controller: this, //with FlareController
+)
+...
+//Inicializa la segunda animación
+@override
+void initialize(FlutterActorArtboard artboard) {
+	_animation = artboard.getAnimation("music_walk");
+}
+...
+//Mix entre amabas animaciones
+@override
+bool advance(FlutterActorArtboard artboard, double elapsed) {
+	_musicTime += elapsed * _speedSlide;
+	_animation.apply(_musicTime % _animation.duration, artboard, _musicSlide);
+	return true;
+}
+```
+
+Código completo en *lib/pinguino_slider*
+
+------------
+
+------------
+
+
 
 ## Animaciones [Nima](https://www.2dimensions.com/about-nima "Nima")
 Nima es utilizado para animaciones con imágenes de mapa de bits.
@@ -48,13 +95,12 @@ assets:
 
 ### Animación simple - [Nima](https://www.2dimensions.com/a/castor/files/nima/robot "Nima")
 
-Para una animación simple solo se necesita nima actor.
-
-`import 'package:nima/nima_actor.dart';`
-
 Utilizar el widget NimaActor para mostrar la animación.
 
 ```dart
+//Para una animación simple solo se necesita nima actor
+import 'package:nima/nima_actor.dart';
+...
 NimaActor(
 	"assets/nima/Robot.nma",
 	animation: "nombre_animacion",
@@ -62,6 +108,10 @@ NimaActor(
 	fit: BoxFit.cover, //Opcional
 )
 ```
+
+Código completo en *lib/simple_nima*
+
+------------
 
 ### Cambio entre animaciones - [Nima](https://www.2dimensions.com/a/JuanCarlos/files/nima/hop "Nima")
 
@@ -100,6 +150,10 @@ RaisedButton(
 )
 ```
 
+Código completo en *lib/cambio_animaciones*
+
+------------
+
 ------------
 
 ## Créditos Artistas
@@ -122,4 +176,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
 
