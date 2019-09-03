@@ -23,7 +23,7 @@ class _PinguinoSliderState extends State<PinguinoSlider> with FlareController {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("titulo"),
+        title: Text(own.MENU_PINGUINO),
       ),
 
       body: Stack(
